@@ -1,0 +1,16 @@
+version: "3.3"
+
+services:
+    synapse:
+        image: "matrixdotorg/synapse:latest"
+        container_name: "matrix_synapse"
+        ports:
+            - 9999:8008
+        volumes:
+            - "./data:/data" 
+        environment:
+            VIRTUAL_HOST: "matrix.hq.local"
+            VIRTUAL_PORT: 8008
+            LETSENCRYPT_HOST: "matrix.hq.local"
+            SYNAPSE_SERVER_NAME: "matrix.hq.local"
+            SYNAPSE_REPORT_STATS: "yes"
